@@ -25,13 +25,13 @@ struct ContentView: View {
         ZStack {
             gradient.ignoresSafeArea()
             VStack(spacing: 20) {
-                Text("Money Goal Tracker") // Title at the top
+                Text("Money Goal Tracker")
                     .font(.largeTitle)
                     .bold()
                     .padding(.top)
 
                 HStack {
-                    Text("Goal: ") // Label for the goal
+                    Text("Goal: ")
                     TextField("Enter your goal", text: $savingsGoal)
                         .keyboardType(.decimalPad)
                         .onChange(of: savingsGoal) { _ in saveData() }
@@ -44,7 +44,7 @@ struct ContentView: View {
                     .padding()
                     .border(Color.gray, width: 2)
 
-                HStack(spacing: 10) { // Place Add and Withdraw buttons next to each other
+                HStack(spacing: 10) {
                     Button("Withdraw Savings") {
                         if let amount = Double(amountToAddOrWithdraw), currentSavings - amount >= 0 {
                             currentSavings -= amount
@@ -91,13 +91,13 @@ struct ContentView: View {
                 
                 HStack {
                     Text(String(format: "%.1f", progress * 100))
-                        .font(.title) // Larger, more prominent font for the number
-                        .fontWeight(.semibold) // Semi-bold weight for the number
+                        .font(.title) 
+                        .fontWeight(.semibold) 
                     Text("%")
-                        .font(.title) // Also larger, more prominent font for the percentage sign
-                        .fontWeight(.semibold) // Semi-bold weight for the percentage sign
+                        .font(.title)
+                        .fontWeight(.semibold) 
                     Text("of your goal achieved")
-                        .fontWeight(.regular) // Regular weight for the text
+                        .fontWeight(.regular) 
                 }
                 .padding()
 
@@ -119,8 +119,6 @@ struct ContentView: View {
         UserDefaults.standard.set(currentSavings, forKey: "currentSavings")
     }
 }
-
-// ... Rest of your code, including SavingsGoalVisualization and the View extension ...
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
